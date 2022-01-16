@@ -8,15 +8,15 @@ import javax.persistence.*;
 public class RoomDto {
 
 
-    private Long roomNumber;
+    public  int roomNumber;
 
-    private String description;
+    public  String description;
 
-    private Long roomCount;
+    public  int roomCount;
 
-    private Long price;
+    public  int price;
 
-    private Byte[] roomImage;
+    public Byte[] roomImage;
 
 
 }

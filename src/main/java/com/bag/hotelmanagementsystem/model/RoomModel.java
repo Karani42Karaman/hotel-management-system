@@ -14,24 +14,22 @@ public class RoomModel {
     private Long id;
 
     @Column(name = "roomnumber",nullable=false)
-    private Long roomNumber;
+    private int roomNumber;
 
     @Column(name = "isReseved",nullable=false)
     private boolean isReseved;
-
 
     @Column(name = "description",nullable=false)
     private String description;
 
     @Column(name = "roomcount",nullable = false)
-    private Long roomCount;
+    private int roomCount;
 
     @Column(name = "price",nullable = false)
-    private Long price;
+    private int price;
 
-    @Lob
-    @Column(name = "image")
-    private Byte[] roomImage;
+    @Column(name = "roomtype",nullable = false)
+    private String roomType;
 
 
 

@@ -22,8 +22,6 @@ public class ReservationModel {
     @Column(name = "email",nullable=false)
     private String email;
 
-    @Column(name = "password",nullable=false)
-    private String password;
 
     @Column(name = "tcnumber",nullable=false)
     private String tcNumber;

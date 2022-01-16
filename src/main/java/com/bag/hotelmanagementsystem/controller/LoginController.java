@@ -31,8 +31,8 @@ public class LoginController {
     @PostMapping(value = "/postLogin")
     public String postLogin(@ModelAttribute UserModel user) {
         if (user != null) {
-            UserModel userModel = userService.getUser(user.getEmail(), user.getPassword());
-            if (userModel != null && user.getEmail().equals(userModel.getEmail()) && user.getPassword().equals(userModel.getPassword())) {
+            UserModel userModel = userService.getUser(user.getEmail(), user.getTcNumber());
+            if (userModel != null && user.getEmail().equals(userModel.getEmail()) && user.getTcNumber().equals(userModel.getTcNumber())) {
                 if (userModel.isAdmin()) {
                     return "redirect:/admin/getAdmin";
                 }else{

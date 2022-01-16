@@ -11,79 +11,7 @@
 
 <div layout:fragment="mycontent">
 
-    <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Search form -->
-                <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-                    <div class="form-group mb-0">
-                        <div class="input-group input-group-alternative input-group-merge">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-search"></i></span>
-                            </div>
-                            <input class="form-control" placeholder="Search" type="text">
-                        </div>
-                    </div>
-                    <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main"
-                            aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </form>
-                <!-- Navbar links -->
-                <ul class="navbar-nav align-items-center  ml-md-auto ">
-                    <li class="nav-item d-xl-none">
-                        <!-- Sidenav toggler -->
-                        <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
-                             data-target="#sidenav-main">
-                            <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item d-sm-none">
-                        <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                            <i class="ni ni-zoom-split-in"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
 
-
-                </ul>
-                <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            <div class="media align-items-center">
-                  <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
-                  </span>
-                                <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu  dropdown-menu-right ">
-                            <div class="dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome!</h6>
-                            </div>
-                            <a href="#!" class="dropdown-item">
-                                <i class="ni ni-single-02"></i>
-                                <span>My profile</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#!" class="dropdown-item">
-                                <i class="ni ni-user-run"></i>
-                                <span>Logout</span>
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <!-- Header -->
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -100,10 +28,11 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-lg-6 col-5 text-right">
-
-                        <a th:href="@{/admin/getCreateRoom}" class="btn btn-sm btn-neutral">New</a>
+                    <div class="col-sm-6 text-right">
+                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
+                                class="fat-add">&#xE147;</i> <span>Add New Room </span></a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -122,72 +51,27 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="name">Project</th>
-                                <th scope="col" class="sort" data-sort="budget">Budget</th>
-                                <th scope="col" class="sort" data-sort="status">Status</th>
-                                <th scope="col">Users</th>
-                                <th scope="col" class="sort" data-sort="completion">Completion</th>
+                                <th scope="col" class="sort" data-sort="name">Room Number</th>
+                                <th scope="col" class="sort" data-sort="budget">Room Type</th>
+                                <th scope="col" class="sort" data-sort="status">Room Price</th>
+                                <th scope="col" class="sort" data-sort="status">Room Count</th>
+                                <th scope="col" class="sort" data-sort="status">Room Description</th>
+                                <th scope="col" class="sort" data-sort="status">Room Reserve</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody class="list">
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <a href="#" class="avatar rounded-circle mr-3">
-                                            <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <span class="name mb-0 text-sm">Argon Design System</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td class="budget">
-                                    $2500 USD
-                                </td>
-                                <td>
-                      <span class="badge badge-dot mr-4">
-                        <i class="bg-warning"></i>
-                        <span class="status">pending</span>
-                      </span>
-                                </td>
-                                <td>
-                                    <div class="avatar-group">
-                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip"
-                                           data-original-title="Ryan Tompson">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip"
-                                           data-original-title="Romina Hadid">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip"
-                                           data-original-title="Alexander Smith">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg">
-                                        </a>
-                                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip"
-                                           data-original-title="Jessica Doe">
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="completion mr-2">60%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" role="progressbar"
-                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: 60%;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
 
+                            <tr th:each="roomModel:${roomModelList}">
+                                <td th:text="${roomModel.getRoomNumber()}"></td>
+                                <td th:text="${roomModel.getRoomType()}"></td>
+                                <td th:text="${roomModel.getPrice()}"></td>
+                                <td th:text="${roomModel.getRoomCount()}"></td>
+                                <td th:text="${roomModel.getDescription()}"></td>
+                                <td th:text="${roomModel.isReseved()}"></td>
                                 <td class="text-right" >
-                                    <a th:href="@{/management/getStudentUpdate/{student_id}(student_id=${ 1})}" class="btn waves-effect waves-dark btn-info btn-outline-info"  >Edit</a>
-                                    <a th:href="@{/management/getStudentInfoCreate/{student_id}(student_id=${ 5})}" class="btn waves-effect waves-dark btn-primary btn-outline-primary">Info Create</a>
-                                    <a th:href="@{/management/postStudentDelete/{student_id}(student_id=${5 })}"
+                                    <a th:href="@{/admin/editRoom/{roomId}(roomId=${ roomModel.getId()})}" class="btn waves-effect waves-dark btn-info btn-outline-info"  >Edit</a>
+                                    <a th:href="@{/admin/deleteRoom/{roomId}(roomId=${roomModel.getId()})}"
                                        class="btn waves-effect waves-dark btn-danger btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
@@ -195,33 +79,53 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Card footer -->
-                    <div class="card-footer py-4">
-                        <nav aria-label="...">
-                            <ul class="pagination justify-content-end mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">
-                                        <i class="fas fa-angle-left"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">
-                                        <i class="fas fa-angle-right"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal HTML -->
+    <div id="addEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form th:action="@{/admin/postCreateRoom}"  method="POST"  enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create Room</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Room Number</label>
+                            <input type="number"  name="roomNumber" class="form-control" >
+                        </div>
+                        <div class="form-group">
+                            <label>Room Count</label>
+                            <input type="number"  name="roomCount" class="form-control"  >
+                        </div>
+                        <div class="form-group">
+                            <label>Room Price $$</label>
+                            <input type="number"  name="price" class="form-control"  >
+                        </div>
+                        <div class="form-group">
+                            <label for="roomType">Room Type</label>
+                            <select name="roomType" id="roomType" class="form-control">
+                                <option value="">Select a Room</option>
+                                <option value="Classic Room">Classic Room</option>
+                                <option value="Ultra Superior Room">Ultra Superior Room</option>
+                                <option value="Grand Deluxe Room">Grand Deluxe Room</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="description" id="description" rows="4" class="form-control" placeholder="oda hakkında birşeyler yaz"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="submit" class="btn btn-success" value="Add">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

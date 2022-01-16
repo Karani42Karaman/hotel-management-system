@@ -41,4 +41,9 @@ public class RoomServiceImpl implements RoomService {
     public void deleteRoomById(Long id) {
         roomRepository.deleteById(id);
     }
+
+    @Override
+    public List<RoomModel> getRoomByReserve(boolean reserve) {
+        return roomRepository.getRoomByReserve(reserve);
+    }
 }

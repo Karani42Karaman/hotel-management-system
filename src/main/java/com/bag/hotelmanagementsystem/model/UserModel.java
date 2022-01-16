@@ -17,7 +17,7 @@ public class UserModel
 {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name",nullable=false)
     private String name;
@@ -28,14 +28,12 @@ public class UserModel
     @Column(name = "email",nullable=false)
     private String email;
 
-    @Column(name = "password",nullable=false)
-    private String password;
 
     @Column(name = "tcnumber",nullable=false)
-    private String tcNumber;
+    private Long tcNumber;
 
     @Column(name = "telephonenumber",nullable=false)
-    private String telephoneNumber;
+    private int telephoneNumber;
 
     @Column(name = "isAdmin",nullable=false)
     private boolean isAdmin;
