@@ -54,8 +54,8 @@
     <link rel="stylesheet" th:href="@{/css/style.min.css}">
     <link rel="stylesheet" th:href="@{/css/custom.css}">
     <!--[if lt IE 9]>
-    <script th:src="@{js/vendor/html5shiv.min.js}"></script>
-    <script src="js/vendor/respond.min.js"></script>
+    <script th:src="@{/js/vendor/html5shiv.min.js}"></script>
+    <script th:src="@{/js/vendor/respond.min.js}"></script>
     <![endif]-->
     <meta name="robots" content="noindex, nofollow">
     <script>(function(w,d){!function(e,t,r,a,s){e[r]=e[r]||{},e[r].executed=[],e.zaraz={deferred:[]};var n=t.getElementsByTagName("title")[0];e[r].c=t.cookie,n&&(e[r].t=t.getElementsByTagName("title")[0].text),e[r].w=e.screen.width,e[r].h=e.screen.height,e[r].j=e.innerHeight,e[r].e=e.innerWidth,e[r].l=e.location.href,e[r].r=t.referrer,e[r].k=e.screen.colorDepth,e[r].n=t.characterSet,e[r].o=(new Date).getTimezoneOffset(),//
@@ -71,22 +71,11 @@
         <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
                 <li><a th:href="@{/login/getLogin}">Login</a></li>
-                <li><a href="https://uicookies.com/demo/theme/atlantis/about.html">About</a></li>
-                <li class="active"><a href="https://uicookies.com/demo/theme/atlantis/rooms.html">Our Rooms</a></li>
-                <li class="hidden-xs probootstrap-logo-center"><a href="https://uicookies.com/demo/theme/atlantis/index.html"><img src="https://uicookies.com/demo/theme/atlantis/img/logo_md.png" class="hires" width="181" height="50" alt="Free Bootstrap Template by uicookies.com"></a></li>
-                <li><a href="https://uicookies.com/demo/theme/atlantis/reservation.html">Reservation</a></li>
-                <li><a href="https://uicookies.com/demo/theme/atlantis/blog.html">Blog</a></li>
-                <li><a href="https://uicookies.com/demo/theme/atlantis/contact.html">Contact</a></li>
+                <li class="active"><a th:href="@{/admin/getRoom}">Rooms</a></li>
+                <li><a th:href="@{/admin/getReservation}">Reservation</a></li>
+                <li><a th:href="@{/login/logout}">Logout</a></li>
             </ul>
-            <div class="extra-text visible-xs">
-                <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
-                <h5>Connect With Us</h5>
-                <ul class="social-buttons">
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-facebook2"></i></a></li>
-                    <li><a href="#"><i class="icon-instagram2"></i></a></li>
-                </ul>
-            </div>
+
         </nav>
     </div>
 
@@ -212,190 +201,9 @@
             </div>
             <div class="clearfix visible-sm-block"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h2>Why Choose Us?</h2>
-                <p class="mb50"><img src="https://uicookies.com/demo/theme/atlantis/img/curve.svg" class="svg" alt="Free HTML5 Bootstrap Template"></p>
-            </div>
-            <div class="col-md-4">
-                <div class="service left-icon left-icon-sm probootstrap-animate">
-                    <div class="icon">
-                        <i class="icon-check"></i>
-                    </div>
-                    <div class="text">
-                        <h3>1+ Million Hotel Rooms</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service left-icon left-icon-sm probootstrap-animate">
-                    <div class="icon">
-                        <i class="icon-check"></i>
-                    </div>
-                    <div class="text">
-                        <h3>Food &amp; Drinks</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service left-icon left-icon-sm probootstrap-animate">
-                    <div class="icon">
-                        <i class="icon-check"></i>
-                    </div>
-                    <div class="text">
-                        <h3>Airport Taxi</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="probootstrap-section probootstrap-section-dark">
-    <div class="container">
-        <div class="row mb30">
-            <div class="col-md-8 col-md-offset-2 probootstrap-section-heading text-center">
-                <h2>Explore our Services</h2>
-                <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p><img src="https://uicookies.com/demo/theme/atlantis/img/curve.svg" class="svg" alt="Free HTML5 Bootstrap Template"></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="service left-icon probootstrap-animate">
-                    <div class="icon">
-                        <img src="https://uicookies.com/demo/theme/atlantis/img/flaticon/svg/001-building.svg" class="svg" alt="Free HTML5 Bootstrap Template by uicookies.com">
-                    </div>
-                    <div class="text">
-                        <h3>1+ Million Hotel Rooms</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service left-icon probootstrap-animate">
-                    <div class="icon">
-                        <img src="https://uicookies.com/demo/theme/atlantis/img/flaticon/svg/003-restaurant.svg" class="svg" alt="Free HTML5 Bootstrap Template by uicookies.com">
-                    </div>
-                    <div class="text">
-                        <h3>Food &amp; Drinks</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service left-icon probootstrap-animate">
-                    <div class="icon">
-                        <img src="https://uicookies.com/demo/theme/atlantis/img/flaticon/svg/004-parking.svg" class="svg" alt="Free HTML5 Bootstrap Template by uicookies.com">
-                    </div>
-                    <div class="text">
-                        <h3>Airport Taxi</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="probootstrap-half">
-    <div class="image" style="background-image: url(https://uicookies.com/demo/theme/atlantis/img/slider_2.jpg);"></div>
-    <div class="text">
-        <div class="probootstrap-animate fadeInUp probootstrap-animated">
-            <h2 class="mt0">Best 5 Star hotel</h2>
-            <p><img src="https://uicookies.com/demo/theme/atlantis/img/curve_white.svg" class="seperator" alt="Free HTML5 Bootstrap Template"></p>
-            <div class="row">
-                <div class="col-md-6">
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                </div>
-                <div class="col-md-6">
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                </div>
-            </div>
-            <p><a href="#" class="link-with-icon white">Learn More <i class=" icon-chevron-right"></i></a></p>
-        </div>
     </div>
 </section>
 
-<footer role="contentinfo" class="probootstrap-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="probootstrap-footer-widget">
-                    <p class="mt40"><img src="https://uicookies.com/demo/theme/atlantis/img/logo_sm.png" class="hires" width="120" height="33" alt="Free HTML5 Bootstrap Template by uicookies.com"></p>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    <p><a href="#" class="link-with-icon">Learn More <i class=" icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="probootstrap-footer-widget">
-                    <h3>Blog</h3>
-                    <ul class="probootstrap-blog-list">
-                        <li>
-                            <a href="#">
-                                <figure class="probootstrap-image"><img src="https://uicookies.com/demo/theme/atlantis/img/img_1.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                <div class="probootstrap-text">
-                                    <h4>River named Duden flows</h4>
-                                    <span class="meta">August 2, 2017</span>
-                                    <p>A small river named Duden flows by their place</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <figure class="probootstrap-image"><img src="https://uicookies.com/demo/theme/atlantis/img/img_2.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                <div class="probootstrap-text">
-                                    <h4>River named Duden flows</h4>
-                                    <span class="meta">August 2, 2017</span>
-                                    <p>A small river named Duden flows by their place</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <figure class="probootstrap-image"><img src="https://uicookies.com/demo/theme/atlantis/img/img_3.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                <div class="probootstrap-text">
-                                    <h4>River named Duden flows</h4>
-                                    <span class="meta">August 2, 2017</span>
-                                    <p>A small river named Duden flows by their place</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="probootstrap-footer-widget">
-                    <h3>Contact</h3>
-                    <ul class="probootstrap-contact-info">
-                        <li><i class="icon-location2"></i> <span>198 West 21th Street, Suite 721 New York NY 10016</span></li>
-                        <li><i class="icon-mail"></i><span><a href="https://uicookies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="771e1911183713181a161e195914181a">[email&#160;protected]</a></span></li>
-                        <li><i class="icon-phone2"></i><span>+123 456 7890</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row mt40">
-            <div class="col-md-12 text-center">
-                <ul class="probootstrap-footer-social">
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-instagram2"></i></a></li>
-                </ul>
-                <p>
-                    <small>&copy; 2017 <a href="https://uicookies.com/" target="_blank">uiCookies:Atlantis</a>. All Rights Reserved. <br> Designed &amp; Developed by <a href="https://uicookies.com/" target="_blank">uicookies.com</a> Demo Images: Unsplash.com &amp; Pexels.com</small>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <script data-cfasync="false" src="https://uicookies.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://uicookies.com/demo/theme/atlantis/js/scripts.min.js"></script>
 <script src="https://uicookies.com/demo/theme/atlantis/js/main.min.js"></script>

@@ -19,16 +19,13 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry)
     {
         registry.addViewController("/").setViewName("index");
-        registry.addViewController("/login").setViewName("index");
-        registry.addViewController("/login/postlogin").setViewName("teacherShow");
-        registry.addViewController("/login/postlogin").setViewName("studentShow");
+        registry.addViewController("/login").setViewName("login");
+         registry.addViewController("/login/postlogin").setViewName("login");
         //registry.addViewController("/home").setViewName("userhome");
-        registry.addViewController("/teacher/getTeacherPage").setViewName("teacherShow");
-        registry.addViewController("/student/getStudentPage").setViewName("studentShow");
-        registry.addViewController("/management/postStudentUpdate/{student_id}").setViewName("managementStudentUpdate");
-        registry.addViewController("/management/getStudentInfoCreate/{student_id}").setViewName("managementStudentCreateInfo");
-        //registry.addViewController("/403").setViewName("403");
-    }
+        registry.addViewController("/admin/getCreateRoom").setViewName("roomCreatePage");
+        registry.addViewController("/admin/getRoom").setViewName("index");
+        registry.addViewController("/admin/getAdmin").setViewName("roomIndexPage");
+     }
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {

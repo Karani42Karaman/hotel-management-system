@@ -2,16 +2,19 @@ package com.bag.hotelmanagementsystem.model;
 
 
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+@Data
 @Entity
+@Table(name="room")
 public class RoomModel {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "roomnumber",nullable=false)
-    private Integer roomNumber;
+    private Long roomNumber;
 
     @Column(name = "isReseved",nullable=false)
     private boolean isReseved;
@@ -21,10 +24,10 @@ public class RoomModel {
     private String description;
 
     @Column(name = "roomcount",nullable = false)
-    private int roomCount;
+    private Long roomCount;
 
     @Column(name = "price",nullable = false)
-    private int price;
+    private Long price;
 
     @Lob
     @Column(name = "image")

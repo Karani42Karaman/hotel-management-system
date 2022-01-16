@@ -1,22 +1,16 @@
 package com.bag.hotelmanagementsystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.Data;
 
+import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
-@Table(name="users")
-public class UserModel
-{
+@Table(name="reservation")
+public class ReservationModel {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
     @Column(name = "name",nullable=false)
@@ -37,6 +31,16 @@ public class UserModel
     @Column(name = "telephonenumber",nullable=false)
     private String telephoneNumber;
 
-    @Column(name = "isAdmin",nullable=false)
-    private boolean isAdmin;
+
+    @Column(name = "roomno",nullable=false)
+    private String roomNo;
+
+    @Temporal(TemporalType.DATE)
+    private Date arrivalTime;
+
+    @Temporal(TemporalType.DATE)
+    private Date departureTime;
+
+
+
 }

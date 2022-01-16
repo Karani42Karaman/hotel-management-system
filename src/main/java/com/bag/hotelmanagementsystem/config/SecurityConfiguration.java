@@ -39,8 +39,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/css/**",
                         "/img/**",
                         "/login/**",
-                        "/teacher/**",//izin verilen entry pointler var
-                        "/student/**",
+                        "/admin/**",//izin verilen entry pointler var
+                        "/user/**",
                         "/index/**",
                         "/management/**").permitAll()
                 .antMatchers( "/webjars/**", "/assets/**").permitAll()
