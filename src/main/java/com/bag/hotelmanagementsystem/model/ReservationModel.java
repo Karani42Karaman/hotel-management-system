@@ -10,7 +10,7 @@ import java.util.Date;
 @Table(name="reservation")
 public class ReservationModel {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name",nullable=false)

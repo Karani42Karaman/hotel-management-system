@@ -19,7 +19,7 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">User Tables</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-                                class="fat-add">&#xE147;</i> <span>Add New Room </span></a>
+                                class="fat-add">&#xE147;</i> <span>Add New User </span></a>
                     </div>
 
                 </div>
@@ -44,34 +44,33 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Management Room</h3>
+                        <h3 class="mb-0">Management Users</h3>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="name">Room Number</th>
-                                <th scope="col" class="sort" data-sort="budget">Room Type</th>
-                                <th scope="col" class="sort" data-sort="status">Room Price $$</th>
-                                <th scope="col" class="sort" data-sort="status">Room Count</th>
-                                <th scope="col" class="sort" data-sort="status">Room Description</th>
-                                <th scope="col" class="sort" data-sort="status">Room Reserve</th>
+                                <th scope="col" class="sort" data-sort="name">User Email</th>
+                                <th scope="col" class="sort" data-sort="name">User Name</th>
+                                <th scope="col" class="sort" data-sort="budget">User SurName</th>
+                                <th scope="col" class="sort" data-sort="status">Tc Number</th>
+                                <th scope="col" class="sort" data-sort="status">Telephone Number</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody class="list">
 
-                            <tr th:each="roomModel:${roomModelList}">
-                                <td th:text="${roomModel.getRoomNumber()}"></td>
-                                <td th:text="${roomModel.getRoomType()}"></td>
-                                <td th:text="${roomModel.getPrice()}">$</td>
-                                <td th:text="${roomModel.getRoomCount()}"></td>
-                                <td th:text="${roomModel.getDescription()}"></td>
-                                <td th:text="${roomModel.isReserved()}"></td>
+                            <tr th:each="userModel:${userModelList}">
+                                <td th:text="${userModel.getEmail()}"></td>
+                                <td th:text="${userModel.getName()}"></td>
+                                <td th:text="${userModel.getSurName()}"></td>
+                                <td th:text="${userModel.getSurName()}">$</td>
+                                <td th:text="${userModel.getTelephoneNumber()}"></td>
+
                                 <td class="text-right" >
-                                    <a th:href="@{/admin/editRoom/{roomId}(roomId=${ roomModel.getId()})}" class="btn waves-effect waves-dark btn-info btn-outline-info"  >Edit</a>
-                                    <a th:href="@{/admin/deleteRoom/{roomId}(roomId=${roomModel.getId()})}"
+                                    <a th:href="@{/admin/editUser/{userId}(userId=${ userModel.getId()})}" class="btn waves-effect waves-dark btn-info btn-outline-info"  >Edit</a>
+                                    <a th:href="@{/admin/deleteUser/{userId}(userId=${userModel.getId()})}"
                                        class="btn waves-effect waves-dark btn-danger btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
@@ -87,38 +86,34 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form th:action="@{/admin/postCreateRoom}"  method="POST"  enctype="multipart/form-data">
+                <form th:action="@{/admin/postCreateUser}"  method="POST"  enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create Room</h4>
+                        <h4 class="modal-title">Create User</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Room Number</label>
-                            <input type="number"  name="roomNumber" class="form-control" >
+                            <label>User Name</label>
+                            <input type="text"  name="name" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label>Room Count</label>
-                            <input type="number"  name="roomCount" class="form-control"  >
+                            <label>User SurName</label>
+                            <input type="text"  name="surName" class="form-control"  >
                         </div>
                         <div class="form-group">
-                            <label>Room Price $$</label>
-                            <input type="number"  name="price" class="form-control"  >
+                            <label>User Email</label>
+                            <input type="text"  name="email" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label for="roomType">Room Type</label>
-                            <select name="roomType" id="roomType" class="form-control">
-                                <option value="">Select a Room</option>
-                                <option value="Classic Room">Classic Room</option>
-                                <option value="Ultra Superior Room">Ultra Superior Room</option>
-                                <option value="Grand Deluxe Room">Grand Deluxe Room</option>
-                            </select>
+                            <label>Tc Number</label>
+                            <input type="number"  name="tcNumber" class="form-control"  >
                         </div>
 
                         <div class="form-group">
-                            <label>Description</label>
-                            <textarea name="description" id="description" rows="4" class="form-control" placeholder="oda hakkında birşeyler yaz"></textarea>
+                            <label>Telephone Number</label>
+                            <input type="number"  name="telephoneNumber" class="form-control"  >
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">

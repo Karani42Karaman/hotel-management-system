@@ -16,7 +16,7 @@ import lombok.Data;
 public class UserModel
 {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name",nullable=false)
@@ -35,6 +35,6 @@ public class UserModel
     @Column(name = "telephonenumber",nullable=false)
     private int telephoneNumber;
 
-    @Column(name = "isAdmin",nullable=false)
+    @Column(name = "isAdmin",nullable=true)
     private boolean isAdmin;
 }

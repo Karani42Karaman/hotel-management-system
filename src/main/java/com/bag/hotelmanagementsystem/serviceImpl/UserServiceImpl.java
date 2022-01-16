@@ -47,4 +47,9 @@ public class UserServiceImpl implements UserService {
     public UserModel getUser(String email, Long tcNo) {
         return userRepository.findByUsername(email, tcNo);
     }
+
+    @Override
+    public List<UserModel> getUserByRole(boolean isAdmin) {
+        return userRepository.getUsernameByisAdmin(isAdmin);
+    }
 }

@@ -10,14 +10,14 @@ import javax.persistence.*;
 @Table(name="room")
 public class RoomModel {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "roomnumber",nullable=false)
     private int roomNumber;
 
-    @Column(name = "isReseved",nullable=false)
-    private boolean isReseved;
+    @Column(name = "isReserved",nullable=false)
+    private boolean isReserved;
 
     @Column(name = "description",nullable=false)
     private String description;

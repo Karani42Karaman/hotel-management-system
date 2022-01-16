@@ -5,7 +5,7 @@
       layout:decorate="~{adminLayoutPage}"
       layout:decorator="adminLayoutPage">
 <head>
-    <title>Room Update Dashboard</title>
+    <title>User Update Dashboard</title>
 
 </head>
 <body>
@@ -26,50 +26,55 @@
 
                 <h1>Room Update</h1>
 
-                <form th:action="@{/admin/updateRoom}" method="POST" th:object="${roomModel}">
+                <form th:action="@{/admin/updateUser}" method="POST" th:object="${userModel}">
 
                     <div class="form-group">
-                        <label> Room Number </label>
+                        <label> User Name </label>
                         <input
-                                type="number"
-                                name="roomNumber"
-                                th:value="*{getRoomNumber()}"
+                                type="text"
+                                name="name"
+                                th:value="*{getName()}"
                                 class="form-control"
                                 required autofocus="autofocus"/>
                     </div>
                     <div class="form-group">
-                        <label> Room Count </label>
+                        <label> User SurName </label>
                         <input
-                                type="number"
-                                name="roomCount"
-                                th:value="*{getRoomCount()}"
-                                class="form-control"
-                                required autofocus="autofocus"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Room Price $$ </label>
-                        <input
-                                type="number"
-                                name="price"
-                                th:value="*{getPrice()}"
+                                type="text"
+                                name="surName"
+                                th:value="*{getSurName()}"
                                 class="form-control"
                                 required autofocus="autofocus"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="roomType">Room Type</label>
-                        <select name="roomType" id="roomType" class="form-control">
-                            <option th:value="*{getRoomType()}" th:text="*{getRoomType()}"></option>
-                            <option value="Classic Room">Classic Room</option>
-                            <option value="Ultra Superior Room">Ultra Superior Room</option>
-                            <option value="Grand Deluxe Room">Grand Deluxe Room</option>
-                        </select>
+                        <label> User Email </label>
+                        <input
+                                type="text"
+                                name="email"
+                                th:value="*{getEmail()}"
+                                class="form-control"
+                                required autofocus="autofocus"/>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea name="description" th:text="*{description}" th:value="*{getDescription()}" id="description" rows="4" class="form-control"  ></textarea>
+                        <label> User Tc Number </label>
+                        <input
+                                type="number"
+                                name="tcNumber"
+                                th:value="*{getTcNumber()}"
+                                class="form-control"
+                                required autofocus="autofocus"/>
                     </div>
+                    <div class="form-group">
+                        <label> User Telephone Number </label>
+                        <input
+                                type="number"
+                                name="telephoneNumber"
+                                th:value="*{getTelephoneNumber()}"
+                                class="form-control"
+                                required autofocus="autofocus"/>
+                    </div>
+
 
                     <div class="form-group">
                         <input
@@ -82,8 +87,8 @@
 
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Update Room</button>
-                        <span><a th:href="@{/admin/getRoom}">Previous</a></span>
+                        <button type="submit" class="btn btn-success">Update User</button>
+                        <span><a th:href="@{/admin/getUser}">Previous</a></span>
                     </div>
                 </form>
             </div>

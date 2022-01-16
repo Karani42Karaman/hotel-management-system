@@ -1,6 +1,7 @@
 package com.bag.hotelmanagementsystem.controller;
 
 import com.bag.hotelmanagementsystem.model.RoomModel;
+import com.bag.hotelmanagementsystem.model.UserModel;
 import com.bag.hotelmanagementsystem.service.RoomService;
 import com.bag.hotelmanagementsystem.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,7 @@ public class AdminController {
 
     @GetMapping(value = "/getRoom")
     public String getRoomPage(Model model) {
-        return "index";
+        return "redirect:/admin/getAdmin";
     }
 
     @GetMapping(value = "/getCreateRoom")
@@ -66,9 +67,49 @@ public class AdminController {
     }
 
     @PostMapping("/updateRoom")
-    public String updateRoom(@ModelAttribute RoomModel roomModel) {
+    public String updateRoom(@ModelAttribute(value = "roomModel") RoomModel roomModel) {
         roomService.saveRoom(roomModel);
         return "redirect:/admin/getAdmin";
     }
+
+    @GetMapping("/getUser")
+    public String getUserPage(Model model) {
+
+        List<UserModel> userModelList = userService.getUserByRole(false);
+        model.addAttribute("userModelList", userModelList);
+        return "userIndexPage";
+    }
+
+    @PostMapping("/postCreateUser")
+    public String postCreateUser(@ModelAttribute(value = "userModel") UserModel userModel) {
+        userService.saveUser(userModel);
+        return "redirect:/admin/getUser";
+    }
+
+    @GetMapping("/deleteUser/{userId}")
+    public String deleteUser(@PathVariable(value = "userId") Long userId, HttpServletRequest request) {
+        userService.deleteUserById(userId);
+        return "redirect:/admin/getUser";
+    }
+
+    @GetMapping("/editUser/{userId}")
+    public String editUser(@PathVariable(value = "userId") Long userId, Model model) {
+        UserModel userModel = userService.getUserById(userId);
+        model.addAttribute("userModel", userModel);
+        return "userEditPage";
+    }
+
+    @PostMapping("/updateUser")
+    public String updateUser(@ModelAttribute(value = "userModel") UserModel userModel) {
+        userService.saveUser(userModel);
+        return "redirect:/admin/getUser";
+    }
+
+    @GetMapping("/getReservation")
+    public String getReservation(Model model) {
+        return "reservationIndexPage";
+    }
+
+
 
 }
