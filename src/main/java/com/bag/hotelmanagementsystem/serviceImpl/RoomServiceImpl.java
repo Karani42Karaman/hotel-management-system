@@ -46,4 +46,9 @@ public class RoomServiceImpl implements RoomService {
     public List<RoomModel> getRoomByReserve(boolean reserve) {
         return roomRepository.getRoomByReserve(reserve);
     }
+
+    @Override
+    public RoomModel getRoomByRoomNumber(Long roomNumber) {
+        return roomRepository.getRoomByRoomNumber(roomNumber);
+    }
 }

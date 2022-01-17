@@ -1,9 +1,12 @@
 package com.bag.hotelmanagementsystem.controller;
 
+import com.bag.hotelmanagementsystem.model.ReservationModel;
 import com.bag.hotelmanagementsystem.model.RoomModel;
 import com.bag.hotelmanagementsystem.model.UserModel;
+import com.bag.hotelmanagementsystem.service.ReservationService;
 import com.bag.hotelmanagementsystem.service.RoomService;
 import com.bag.hotelmanagementsystem.service.UserService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +20,12 @@ public class AdminController {
 
     private UserService userService;
     private RoomService roomService;
+    private ReservationService reservationService;
 
-    public AdminController(UserService userService, RoomService roomService) {
+    public AdminController(UserService userService,ReservationService reservationService, RoomService roomService) {
         this.userService = userService;
         this.roomService = roomService;
+        this.reservationService = reservationService;
     }
 
 
@@ -32,10 +37,10 @@ public class AdminController {
         return "roomIndexPage";
     }
 
-    @GetMapping(value = "/getReservation")
+    /*@GetMapping(value = "/getReservation")
     public String getReservationPage(Model model) {
         return "reservation";
-    }
+    }*/
 
     @GetMapping(value = "/getRoom")
     public String getRoomPage(Model model) {
@@ -107,9 +112,32 @@ public class AdminController {
 
     @GetMapping("/getReservation")
     public String getReservation(Model model) {
+        List<ReservationModel> reservationModelList = reservationService.getAllReservation();
+        List<RoomModel> roomModelList = roomService.getRoomByReserve(false);
+        model.addAttribute("roomModelList", roomModelList);
+        model.addAttribute("reservationModelList", reservationModelList);
         return "reservationIndexPage";
     }
 
+    @GetMapping("/deleteReservation/{reservationId}")
+    public String deleteReservation(@PathVariable(value = "reservationId") Long reservationId, HttpServletRequest request) {
+        ReservationModel reservationModel = reservationService.getReservationById(reservationId);
+        RoomModel roomModel = roomService.getRoomById(reservationModel.getRoomNo());
+        roomModel.setReserved(false);
+        roomService.saveRoom(roomModel);
+        reservationService.deleteReservationById(reservationId);
+        return "redirect:/admin/getReservation";
+    }
+
+    @PostMapping("/postCreateReservation")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    public String postCreateReservation(@ModelAttribute(value = "reservationModel") ReservationModel reservationModel) {
+        RoomModel roomModel = roomService.getRoomByRoomNumber(reservationModel.getRoomNo());
+        roomModel.setReserved(true);
+        roomService.saveRoom(roomModel);
+        reservationService.saveReservation(reservationModel);
+        return "redirect:/admin/getReservation";
+    }
 
 
 }

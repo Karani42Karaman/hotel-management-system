@@ -8,7 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface RoomRepository extends JpaRepository<RoomModel, Long> {
-    @Query(value = "SELECT * FROM hotel.room r where r.is_reseved = ?;", nativeQuery = true)
+    @Query(value = "SELECT * FROM hotel.room r where r.is_reserved = ?;", nativeQuery = true)
     public List<RoomModel> getRoomByReserve(boolean is_reserved);
+
+
+    @Query(value = "SELECT * FROM hotel.room r where r.roomnumber = ?;", nativeQuery = true)
+    public RoomModel getRoomByRoomNumber(Long roomnumber);
 
 }

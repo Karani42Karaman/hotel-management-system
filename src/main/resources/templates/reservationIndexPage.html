@@ -19,7 +19,7 @@
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
-                        <h6 class="h2 text-white d-inline-block mb-0">User Tables</h6>
+                        <h6 class="h2 text-white d-inline-block mb-0">Reserve Tables</h6>
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -28,9 +28,10 @@
                             </ol>
                         </nav>
                     </div>
+
                     <div class="col-sm-6 text-right">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-                                class="ni ni-fat-add"></i> <span>Add New User </span></a>
+                                class="ni ni-fat-add"></i> <span>Add New Reserve </span></a>
                     </div>
 
                 </div>
@@ -44,7 +45,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Management Users</h3>
+                        <h3 class="mb-0">Management Reservation</h3>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
@@ -56,21 +57,26 @@
                                 <th scope="col" class="sort" data-sort="budget">User SurName</th>
                                 <th scope="col" class="sort" data-sort="status">Tc Number</th>
                                 <th scope="col" class="sort" data-sort="status">Telephone Number</th>
+                                <th scope="col" class="sort" data-sort="status">Room Number</th>
+                                <th scope="col" class="sort" data-sort="status">Departure Time</th>
+                                <th scope="col" class="sort" data-sort="status">Arrival Time</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody class="list">
 
-                            <tr th:each="userModel:${userModelList}">
-                                <td th:text="${userModel.getEmail()}"></td>
-                                <td th:text="${userModel.getName()}"></td>
-                                <td th:text="${userModel.getSurName()}"></td>
-                                <td th:text="${userModel.getTcNumber()}">$</td>
-                                <td th:text="${userModel.getTelephoneNumber()}"></td>
+                            <tr th:each="reservation:${reservationModelList}">
+                                <td th:text="${reservation.getEmail()}"></td>
+                                <td th:text="${reservation.getName()}"></td>
+                                <td th:text="${reservation.getSurName()}"></td>
+                                <td th:text="${reservation.getTcNumber()}"></td>
+                                <td th:text="${reservation.getTelephoneNumber()}"></td>
+                                <td th:text="${reservation.getRoomNo()}"></td>
+                                <td th:text="${reservation.getDepartureTime()}"></td>
+                                <td th:text="${reservation.getArrivalTime()}"></td>
 
                                 <td class="text-right" >
-                                    <a th:href="@{/admin/editUser/{userId}(userId=${ userModel.getId()})}" class="btn waves-effect waves-dark btn-info btn-outline-info"  >Edit</a>
-                                    <a th:href="@{/admin/deleteUser/{userId}(userId=${userModel.getId()})}"
+                                    <a th:href="@{/admin/deleteReservation/{reservationId}(reservationId=${reservation.getId()})}"
                                        class="btn waves-effect waves-dark btn-danger btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
@@ -86,12 +92,13 @@
     <div id="addEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form th:action="@{/admin/postCreateUser}"  method="POST"  enctype="multipart/form-data">
+                <form th:action="@{/admin/postCreateReservation}"  method="POST"  enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h4 class="modal-title">Create User</h4>
+                        <h4 class="modal-title">Create Reserve</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
+
                         <div class="form-group">
                             <label>User Name</label>
                             <input type="text"  name="name" class="form-control" >
@@ -113,6 +120,28 @@
                             <label>Telephone Number</label>
                             <input type="number"  name="telephoneNumber" class="form-control"  >
                         </div>
+
+                        <div class="form-group">
+                            <label for="roomNo">Room Number</label>
+                            <select class="form-control" name="roomNo" id="roomNo" required>
+
+                                <option  id="editInfo" th:each="roomModel : ${roomModelList}"
+                                         th:value="${roomModel.getRoomNumber()}"
+                                         th:text="${roomModel.getRoomNumber()}"></option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Arrival Time </label>
+                            <input type="date" pattern="yyyy-MM-dd"  name="arrivalTime" class="form-control"  >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Departure Time</label>
+                            <input type="date"  pattern="yyyy-MM-dd" name="departureTime" class="form-control"  >
+                        </div>
+
 
                     </div>
                     <div class="modal-footer">

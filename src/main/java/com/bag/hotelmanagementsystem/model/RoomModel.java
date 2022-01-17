@@ -14,7 +14,7 @@ public class RoomModel {
     private Long id;
 
     @Column(name = "roomnumber",nullable=false)
-    private int roomNumber;
+    private Long roomNumber;
 
     @Column(name = "isReserved",nullable=false)
     private boolean isReserved;
@@ -23,10 +23,10 @@ public class RoomModel {
     private String description;
 
     @Column(name = "roomcount",nullable = false)
-    private int roomCount;
+    private Long roomCount;
 
     @Column(name = "price",nullable = false)
-    private int price;
+    private Long price;
 
     @Column(name = "roomtype",nullable = false)
     private String roomType;

@@ -1,6 +1,7 @@
 package com.bag.hotelmanagementsystem.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Date;
 public class ReservationModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name",nullable=false)
     private String name;
@@ -31,12 +32,14 @@ public class ReservationModel {
 
 
     @Column(name = "roomno",nullable=false)
-    private String roomNo;
+    private Long roomNo;
 
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date arrivalTime;
 
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date departureTime;
 
 
