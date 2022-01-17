@@ -33,7 +33,7 @@ public class UserModel
     private Long tcNumber;
 
     @Column(name = "telephonenumber",nullable=false)
-    private int telephoneNumber;
+    private Long telephoneNumber;
 
     @Column(name = "isAdmin",nullable=true)
     private boolean isAdmin;

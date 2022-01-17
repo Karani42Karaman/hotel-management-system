@@ -25,10 +25,10 @@ public class ReservationModel {
 
 
     @Column(name = "tcnumber",nullable=false)
-    private String tcNumber;
+    private Long tcNumber;
 
     @Column(name = "telephonenumber",nullable=false)
-    private String telephoneNumber;
+    private Long telephoneNumber;
 
 
     @Column(name = "roomno",nullable=false)

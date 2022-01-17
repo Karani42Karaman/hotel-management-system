@@ -135,6 +135,19 @@ public class AdminController {
         RoomModel roomModel = roomService.getRoomByRoomNumber(reservationModel.getRoomNo());
         roomModel.setReserved(true);
         roomService.saveRoom(roomModel);
+
+        UserModel userModel = userService.getUser(reservationModel.getEmail(),reservationModel.getTcNumber());
+
+        if(userModel == null){
+            userModel.setAdmin(false);
+            userModel.setEmail(reservationModel.getEmail());
+            userModel.setName(reservationModel.getName());
+            userModel.setSurName(reservationModel.getSurName());
+            userModel.setTcNumber(reservationModel.getTcNumber());
+            userModel.setTelephoneNumber(reservationModel.getTelephoneNumber());
+            userService.saveUser(userModel);
+        }
+
         reservationService.saveReservation(reservationModel);
         return "redirect:/admin/getReservation";
     }
