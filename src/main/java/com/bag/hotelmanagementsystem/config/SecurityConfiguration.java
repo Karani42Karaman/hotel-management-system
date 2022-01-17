@@ -40,9 +40,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/img/**",
                         "/login/**",
                         "/admin/**",//izin verilen entry pointler var
-                        "/user/**",
-                        "/index/**",
-                        "/management/**").permitAll()
+                        "/employe/**",
+                        "/index/**").permitAll()
                 .antMatchers( "/webjars/**", "/assets/**").permitAll()
                 .antMatchers("/")
                 .permitAll()
@@ -50,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/index")
+                .loginPage("/employe/getIndex")
                 .permitAll()
                 .and()
                 .logout()

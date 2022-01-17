@@ -43,4 +43,9 @@ public class ReservationServiceImpl implements ReservationService {
     public void deleteReservationById(Long id) {
         reservationRepository.deleteById(id);
     }
+
+    @Override
+    public List<ReservationModel> getAllByReservation(String email, Long tcNumber) {
+        return reservationRepository.getFindResesevation(email, tcNumber);
+    }
 }

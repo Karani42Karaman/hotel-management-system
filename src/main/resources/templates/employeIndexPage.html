@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{employeLayoutPage}"
+      layout:decorator="employeLayoutPage">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<div layout:fragment="mycontent">
+
+
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">User Tables</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Tables</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Management Reservation</h3>
+                    </div>
+                    <!-- Light table -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">User Email</th>
+                                <th scope="col" class="sort" data-sort="name">User Name</th>
+                                <th scope="col" class="sort" data-sort="budget">User SurName</th>
+                                <th scope="col" class="sort" data-sort="status">Tc Number</th>
+                                <th scope="col" class="sort" data-sort="status">Telephone Number</th>
+                                <th scope="col" class="sort" data-sort="status">Room Number</th>
+                                <th scope="col" class="sort" data-sort="status">Departure Time</th>
+                                <th scope="col" class="sort" data-sort="status">Arrival Time</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody class="list">
+
+                            <tr th:each="reservation:${reservationModelList}">
+                                <td th:text="${reservation.getEmail()}"></td>
+                                <td th:text="${reservation.getName()}"></td>
+                                <td th:text="${reservation.getSurName()}"></td>
+                                <td th:text="${reservation.getTcNumber()}"></td>
+                                <td th:text="${reservation.getTelephoneNumber()}"></td>
+                                <td th:text="${reservation.getRoomNo()}"></td>
+                                <td th:text="${reservation.getDepartureTime()}"></td>
+                                <td th:text="${reservation.getArrivalTime()}"></td>
+
+                                <td class="text-right" >
+                                    <a th:href="@{/employe/deleteReservation/{reservationId}(reservationId=${reservation.getId()})}"
+                                       class="btn waves-effect waves-dark btn-danger btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

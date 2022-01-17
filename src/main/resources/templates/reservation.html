@@ -73,7 +73,7 @@
             <ul class="probootstrap-main-nav">
                 <li><a th:href="@{/login/getLogin}">Login</a></li>
                 <li class="active"><a th:href="@{/admin/getRoom}">Rooms</a></li>
-                <li><a th:href="@{/admin/getReservation}">Reservation</a></li>
+                <li><a th:href="@{/employe/getReservationOut}">Reservation</a></li>
                 <li><a th:href="@{/login/logout}">Logout</a></li>
             </ul>
 
@@ -100,22 +100,33 @@
     </ul>
 </section>
 <section class="probootstrap-section">
+
+    <div th:if="${deneme == true}">
+        <div class="alert alert-success">
+            Başarılı Kayıt.
+        </div>
+    </div>
+    <div th:if="${deneme == false}">
+        <div class="alert alert-danger">
+            Başarılı Başarısız.
+        </div>
+    </div>
     <div class="container">
         <div class="row probootstrap-gutter40">
             <div class="col-md-8">
                 <h2 class="mt0">Reservation Form</h2>
-                <form action="#" method="post" class="probootstrap-form">
+                <form th:action="@{/employe/postCreateReservationOut}" method="post" class="probootstrap-form">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="fname">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname">
+                                <input type="text" class="form-control" id="fname" name="name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lname">Last Name</label>
-                                <input type="text" class="form-control" id="lname" name="lname">
+                                <input type="text" class="form-control" id="lname" name="surName">
                             </div>
                         </div>
                     </div>
@@ -132,19 +143,19 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="date-arrival">Arrival</label>
+                                <label >Arrival</label>
                                 <div class="form-field">
                                     <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-arrival" name="date-arrival">
+                                    <input type="date" pattern="yyyy-MM-dd" class="form-control"  name="arrivalTime">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="date-departure">Departure</label>
+                                <label >Departure</label>
                                 <div class="form-field">
                                     <i class="icon icon-calendar2"></i>
-                                    <input type="text" class="form-control" id="date-departure" name="date-departure">
+                                    <input type="date"  pattern="yyyy-MM-dd" class="form-control"  name="departureTime">
                                 </div>
                             </div>
                         </div>
@@ -160,18 +171,18 @@
                         <label for="email">Telephone Number</label>
                         <div class="form-field">
                             <i class="icon icon-mail"></i>
-                            <input type="email" class="form-control" id="telephoneNumber" name="email">
+                            <input type="number" class="form-control" id="telephoneNumber" name="telephoneNumber">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="room">Room</label>
+                        <label for="roomNo">Room</label>
                         <div class="form-field">
                             <i class="icon icon-chevron-down"></i>
-                            <select name="room" id="room" class="form-control">
-                                <option value="">Select a Room</option>
-                                <option value="1">Classic Room</option>
-                                <option value="2">Ultra Superior Room</option>
-                                <option value="3">Grand Deluxe Room</option>
+                            <select class="form-control" name="roomNo" id="roomNo" required>
+
+                                <option  id="editInfo" th:each="roomModel : ${roomModelList}"
+                                         th:value="${roomModel.getRoomNumber()}"
+                                         th:text="${roomModel.getRoomNumber()}"></option>
                             </select>
                         </div>
                     </div>

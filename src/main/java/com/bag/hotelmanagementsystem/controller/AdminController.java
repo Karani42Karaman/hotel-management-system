@@ -38,10 +38,6 @@ public class AdminController {
         return "roomIndexPage";
     }
 
-    /*@GetMapping(value = "/getReservation")
-    public String getReservationPage(Model model) {
-        return "reservation";
-    }*/
 
     @GetMapping(value = "/getRoom")
     public String getRoomPage(Model model) {

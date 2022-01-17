@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -23,20 +24,23 @@ public class LoginController {
         this.userService = userService;
     }
 
+
     @GetMapping("/getLogin")
     public String login(Model model) {
         return "login";
     }
 
     @PostMapping(value = "/postLogin")
-    public String postLogin(@ModelAttribute UserModel user) {
+    public String postLogin(@ModelAttribute UserModel user, HttpSession session) {
         if (user != null) {
             UserModel userModel = userService.getUser(user.getEmail(), user.getTcNumber());
             if (userModel != null && user.getEmail().equals(userModel.getEmail()) && user.getTcNumber().equals(userModel.getTcNumber())) {
                 if (userModel.isAdmin()) {
+                    session.setAttribute("admin", userModel);
                     return "redirect:/admin/getAdmin";
                 }else{
-                    return "redirect:/user/getUser";
+                    session.setAttribute("employe", userModel);
+                    return "redirect:/employe/getEmploye";
                 }
             } else {
                 return "UnAuth";
@@ -44,5 +48,6 @@ public class LoginController {
         }
         return "login";
     }
+
 
 }
