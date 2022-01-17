@@ -30,6 +30,8 @@ public class EmployeController {
     @GetMapping(value = "getIndex")
     public String getIndex(Model model) {
         List<RoomModel> roomModelList = roomService.getRoomByReserve(false);
+        int sayac=0;
+        model.addAttribute("sayac",sayac);
         model.addAttribute("roomModelList", roomModelList);
         return "index";
     }
