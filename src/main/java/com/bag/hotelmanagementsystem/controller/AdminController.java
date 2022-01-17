@@ -6,6 +6,7 @@ import com.bag.hotelmanagementsystem.model.UserModel;
 import com.bag.hotelmanagementsystem.service.ReservationService;
 import com.bag.hotelmanagementsystem.service.RoomService;
 import com.bag.hotelmanagementsystem.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -136,9 +137,10 @@ public class AdminController {
         roomModel.setReserved(true);
         roomService.saveRoom(roomModel);
 
-        UserModel userModel = userService.getUser(reservationModel.getEmail(),reservationModel.getTcNumber());
+        UserModel userModel1 = userService.getUser(reservationModel.getEmail(),reservationModel.getTcNumber());
 
-        if(userModel == null){
+        if(userModel1 == null){
+            UserModel userModel = new UserModel();
             userModel.setAdmin(false);
             userModel.setEmail(reservationModel.getEmail());
             userModel.setName(reservationModel.getName());
