@@ -33,7 +33,14 @@ public class EmployeController {
         int sayac=0;
         model.addAttribute("sayac",sayac);
         model.addAttribute("roomModelList", roomModelList);
-        return "index";
+        return "Giris";
+    }
+
+
+    @GetMapping(value = "getWelcome")
+    public String getWelcome() {
+
+        return "Welcome";
     }
 
     @GetMapping(value = "/getEmploye")

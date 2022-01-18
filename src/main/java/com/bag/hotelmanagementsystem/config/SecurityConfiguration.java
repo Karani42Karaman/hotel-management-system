@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/employe/getIndex")
+                .loginPage("/Welcome")
                 .permitAll()
                 .and()
                 .logout()

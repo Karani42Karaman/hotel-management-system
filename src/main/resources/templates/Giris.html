@@ -79,24 +79,19 @@
 <body>
 
 <header role="banner" class="probootstrap-header">
-
     <div class="row">
-        <a href="https://uicookies.com/demo/theme/atlantis/index.html" class="probootstrap-logo visible-xs"><img
-                src="https://uicookies.com/demo/theme/atlantis/img/logo_sm.png" class="hires" width="120" height="33"
-                alt="Free Bootstrap Template by uicookies.com"></a>
+        <a href="https://uicookies.com/demo/theme/atlantis/index.html" class="probootstrap-logo visible-xs"><img src="https://uicookies.com/demo/theme/atlantis/img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
         <a href="#" class="probootstrap-burger-menu visible-xs"><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
         <nav role="navigation" class="probootstrap-nav hidden-xs">
             <ul class="probootstrap-main-nav">
                 <li><a th:href="@{/login/getLogin}">Login</a></li>
-                <li class="active"><a th:href="@{/admin/getRoom}">Rooms</a></li>
+                <li><a th:href="@{/employe/getWelcome}">Welcome</a></li>
+                <li class="active"><a th:href="@{/employe/getIndex}">Rooms</a></li>
                 <li><a th:href="@{/employe/getReservationOut}">Reservation</a></li>
-                <li><a th:href="@{/login/logout}">Logout</a></li>
             </ul>
-
         </nav>
     </div>
-
 </header>
 
 <section class="probootstrap-slider flexslider probootstrap-inner">
@@ -147,11 +142,7 @@
                             </div>
                         </td>
                     </tr>
-
                 </tr>
-
-
-
             </table>
 
         </div>

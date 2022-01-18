@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/styles-merged.css}">
+    <link rel="stylesheet" th:href="@{/css/style.min.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+</head>
+<body>
+
+<!-- START: header -->
+
+<header role="banner" class="probootstrap-header">
+
+    <div class="row">
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+            <ul class="probootstrap-main-nav">
+                <li><a th:href="@{/login/getLogin}">Login</a></li>
+                <li class="active"><a th:href="@{/employe/getWelcome}">Welcome</a></li>
+                <li><a th:href="@{/employe/getIndex}">Rooms</a></li>
+                <li><a th:href="@{/employe/getReservationOut}">Reservation</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>
+<!-- END: header -->
+
+<section class="probootstrap-slider flexslider">
+    <ul class="slides">
+
+        <li style="background-color:#e0a800;" class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="probootstrap-slider-text text-center">
+                            <p><img src="assets/img/curve_white.svg" class="seperator probootstrap-animate"></p>
+                            <h1 class="probootstrap-heading probootstrap-animate">Welcome to Bağ Hotel</h1>
+                            <div class="probootstrap-animate probootstrap-sub-wrap">Thank you for choosing BAG Hotel. We serve you with our distinguished staff.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</section>
+
+<script th:src="@{/js/scripts.min.js}"></script>
+<script th:src="@{/js/main.min.js}"></script>
+<script th:src="@{/js/custom.js}"></script>
+
+</body>
+</html>
