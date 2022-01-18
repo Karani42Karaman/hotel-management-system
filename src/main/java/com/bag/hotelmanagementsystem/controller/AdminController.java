@@ -199,17 +199,13 @@ public class AdminController {
 
     @GetMapping("/deleteReservation/{reservationId}")
     public String deleteReservation(@PathVariable(value = "reservationId") Long reservationId, HttpServletRequest request) {
-        UserModel sessionAdmin = (UserModel) request.getSession().getAttribute("admin");
-        if (sessionAdmin != null) {
-            ReservationModel reservationModel = reservationService.getReservationById(reservationId);
-            RoomModel roomModel = roomService.getRoomById(reservationModel.getRoomNo());
+
+            ReservationModel reservationModel = reservationService.getReservationid(reservationId);
+            RoomModel roomModel = roomService.getRoomByRoomNumber(reservationModel.getRoomNo());
             roomModel.setReserved(false);
             roomService.saveRoom(roomModel);
             reservationService.deleteReservationById(reservationId);
             return "redirect:/admin/getReservation";
-        } else {
-            return "redirect:/login/Authorization";
-        }
     }
 
     @PostMapping("/postCreateReservation")

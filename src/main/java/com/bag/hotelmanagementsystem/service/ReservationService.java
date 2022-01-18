@@ -12,4 +12,6 @@ public interface ReservationService {
     ReservationModel updateReservation(ReservationModel reservationModel);
     void deleteReservationById(Long id);
     List<ReservationModel> getAllByReservation(String email,Long tcNumber);
+
+    ReservationModel getReservationid(Long id);
 }

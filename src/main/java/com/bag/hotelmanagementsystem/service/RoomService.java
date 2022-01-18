@@ -12,5 +12,6 @@ public interface RoomService {
     void deleteRoomById(Long id);
     List<RoomModel> getRoomByReserve(boolean reserve);
     RoomModel getRoomByRoomNumber(Long roomNumber);
+    RoomModel getRoomByid(Long id);
 
 }

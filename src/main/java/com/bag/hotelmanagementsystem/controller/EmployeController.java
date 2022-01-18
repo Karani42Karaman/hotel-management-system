@@ -77,25 +77,21 @@ public class EmployeController {
 
     @GetMapping("/deleteReservation/{reservationId}")
     public String deleteReservation(@PathVariable(value = "reservationId") Long reservationId, HttpServletRequest request) {
-        UserModel sessionEmploye = (UserModel) request.getSession().getAttribute("employe");
-        if (sessionEmploye != null) {
-            ReservationModel reservationModel = reservationService.getReservationById(reservationId);
-            RoomModel roomModel = roomService.getRoomById(reservationModel.getRoomNo());
+
+            ReservationModel reservationModel = reservationService.getReservationid(reservationId);
+            RoomModel roomModel = roomService.getRoomByRoomNumber(reservationModel.getRoomNo());
             roomModel.setReserved(false);
             roomService.saveRoom(roomModel);
             reservationService.deleteReservationById(reservationId);
             return "employeIndexPage";
-        } else {
-            return "redirect:/login/Authorization";
-        }
+
     }
 
 
     @PostMapping("/postCreateReservationOut")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     public String postCreateReservationOut(@ModelAttribute(value = "reservationModel") ReservationModel reservationModel, Model model, HttpServletRequest request) {
-        UserModel sessionEmploye = (UserModel) request.getSession().getAttribute("employe");
-        if (sessionEmploye != null) {
+
             RoomModel roomModel = roomService.getRoomByRoomNumber(reservationModel.getRoomNo());
             roomModel.setReserved(true);
             roomService.saveRoom(roomModel);
@@ -116,21 +112,16 @@ public class EmployeController {
             model.addAttribute("deneme", true);
             reservationService.saveReservation(reservationModel);
             return "reservation";
-        } else {
-            return "redirect:/login/Authorization";
-        }
+
     }
 
     @GetMapping(value = "/getReservationOut")
     public String getReservationOut(Model model, HttpServletRequest request) {
-        UserModel sessionEmploye = (UserModel) request.getSession().getAttribute("employe");
-        if (sessionEmploye != null) {
+
             List<RoomModel> roomModelList = roomService.getRoomByReserve(false);
             model.addAttribute("roomModelList", roomModelList);
             return "reservation";
-        } else {
-            return "redirect:/login/Authorization";
-        }
+
     }
 
 }

@@ -51,4 +51,9 @@ public class RoomServiceImpl implements RoomService {
     public RoomModel getRoomByRoomNumber(Long roomNumber) {
         return roomRepository.getRoomByRoomNumber(roomNumber);
     }
+
+    @Override
+    public RoomModel getRoomByid(Long id) {
+        return roomRepository.getRoomByid(id);
+    }
 }

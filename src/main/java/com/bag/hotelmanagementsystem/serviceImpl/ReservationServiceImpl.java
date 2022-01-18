@@ -48,4 +48,9 @@ public class ReservationServiceImpl implements ReservationService {
     public List<ReservationModel> getAllByReservation(String email, Long tcNumber) {
         return reservationRepository.getFindResesevation(email, tcNumber);
     }
+
+    @Override
+    public ReservationModel getReservationid(Long id) {
+        return reservationRepository.getByid(id);
+    }
 }
