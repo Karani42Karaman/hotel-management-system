@@ -31,7 +31,7 @@ public class LoginController {
     }
 
     @PostMapping(value = "/postLogin")
-    public String postLogin(@ModelAttribute UserModel user, HttpSession session) {
+    public String postLogin(@ModelAttribute UserModel user, HttpSession session ,Model model) {
         if (user != null) {
             UserModel userModel = userService.getUser(user.getEmail(), user.getTcNumber());
             if (userModel != null && user.getEmail().equals(userModel.getEmail()) && user.getTcNumber().equals(userModel.getTcNumber())) {
@@ -43,11 +43,23 @@ public class LoginController {
                     return "redirect:/employe/getEmploye";
                 }
             } else {
-                return "UnAuth";
+                model.addAttribute("error", false);
             }
         }
         return "login";
     }
 
+
+
+    @GetMapping(value = "/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login/getLogin";
+    }
+
+    @GetMapping(value = "/Authorization")
+    public String getAuthErrorPage() {
+        return "authErrorPage";
+    }
 
 }

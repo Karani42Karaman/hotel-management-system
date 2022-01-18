@@ -80,7 +80,9 @@
 
 <header role="banner" class="probootstrap-header">
     <div class="row">
-        <a href="https://uicookies.com/demo/theme/atlantis/index.html" class="probootstrap-logo visible-xs"><img src="https://uicookies.com/demo/theme/atlantis/img/logo_sm.png" class="hires" width="120" height="33" alt="Free Bootstrap Template by uicookies.com"></a>
+        <a href="https://uicookies.com/demo/theme/atlantis/index.html" class="probootstrap-logo visible-xs"><img
+                src="https://uicookies.com/demo/theme/atlantis/img/logo_sm.png" class="hires" width="120" height="33"
+                alt="Free Bootstrap Template by uicookies.com"></a>
         <a href="#" class="probootstrap-burger-menu visible-xs"><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
         <nav role="navigation" class="probootstrap-nav hidden-xs">
@@ -117,38 +119,39 @@
 <section class="probootstrap-section">
     <div class="container">
         <div class="row">
-
             <table border="0" cellpadding="10" cellspacing="10">
+                <td>
+                <td th:each="roomModel:${roomModelList}">
+                        <div class="col-md-20 col-sm-20 col-xs-12">
+                            <div class="probootstrap-room">
+                                <div class="text">
+                                    <h3 th:text="${roomModel.getRoomType()}"></h3>
+                                    <p>Starting from <strong th:text="${roomModel.getPrice()}"></strong> $</p>
+                                    <div class="post-meta mb30">
+                                        <ul>
+                                            <strong>
+                                                <li th:text="${roomModel.getRoomCount()}"></li>
+                                                Rooms
+                                            </strong>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <p th:text="${roomModel.getDescription()}">
 
-                <tr th:each="roomModel:${roomModelList}">
-                    <tr>
-                        <td>
-                            <div class="col-md-20 col-sm-20 col-xs-12">
-                                <div class="probootstrap-room">
-                                    <div class="text">
-                                        <h3>Classic Room</h3>
-                                        <p>Starting from <strong>$29.00/Night</strong></p>
-                                        <div class="post-meta mb30">
-                                            <ul>
-                                                <li><span class="review-rate">4.7</span> <i class="icon-star"></i> 252
-                                                    Reviews
-                                                </li>
-                                                <li><i class="icon-user2"></i> 3 Guests</li>
-                                            </ul>
-                                        </div>
-                                        <p><a href="#" class="btn btn-primary" role="button">Reserve now </a></p>
+                                                </p>
+                                            </li>
+                                        </ul>
                                     </div>
+                                    <p><a th:href="@{/employe/getReservationOut}" class="btn btn-primary" role="button">Reserve now </a></p>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                </tr>
+                        </div>
+                </td>
+                </td>
             </table>
-
         </div>
     </div>
 </section>
-
 
 <script data-cfasync="false"
         src="https://uicookies.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
